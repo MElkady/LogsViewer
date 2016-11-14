@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%@ page contentType="text/html;charset=windows-1256"%>
 <%@ page import="com.mak.*"%>
-<html>
+<html style="height: 100%;">
 <head>
 	<title>File Viewer</title>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -22,8 +22,8 @@
 		}
 	</script>
 </head>
-<body>
-<div>
+<body style="height: 100%;">
+<div style="height: 100%;">
 	<% String fileToView = request.getParameter("file");
 	if(fileToView != null && fileToView.length() > 0){ 
 		try {%>
@@ -33,8 +33,8 @@
 				<a href="#bottomlink" id="downLink"><img src="../images/down.png" alt="Go down" style="{border:0;}" /></a>
 			</div>
 			<hr />
-			<div id="viewer">
-				<pre><%= LoggingService.readLoggingFile(request.getParameter("file")).replaceAll("\r\n", "<br />") %></pre>
+			<div id="viewer" style="height: 100%;">
+				<textarea style="width: 100%;height: 100%;border: none; margin: 0px;" readonly><%= LoggingService.readLoggingFile(request.getParameter("file")) %></textarea>
 			</div>
 		<% } catch (Exception ex){ 
 			out.write("Error: " + ex.getMessage() + "<br /><br />");
